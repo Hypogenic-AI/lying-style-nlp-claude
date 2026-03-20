@@ -1,0 +1,21 @@
+# Ignore large dataset files (download via scripts or HuggingFace)
+# Keep samples/ and documentation tracked
+
+# HuggingFace dataset caches
+truthfulqa/
+truthfulqa_mc/
+liar/
+counterfact/
+fever_nli/
+azaria_true_false/
+
+# Downloaded archives
+*.zip
+*.tar.gz
+*.tar
+
+# But track samples and docs
+!samples/
+!samples/**
+!README.md
+!download_datasets.py

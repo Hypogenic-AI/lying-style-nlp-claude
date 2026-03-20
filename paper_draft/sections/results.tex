@@ -1,0 +1,129 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{Feature Distributions Differ Substantially}
+\label{sec:feature_results}
+
+\tabref{tab:stats} presents the statistical comparison of linguistic features between truthful and deceptive responses (all three lying conditions pooled) for \gptfull. Nine of 15 features show statistically significant differences after Bonferroni correction ($\alpha = 0.0033$), with several exhibiting large effect sizes.
+
+\begin{table}[t]
+\centering
+\caption{Statistical comparison of linguistic features between truthful and deceptive responses (\gptfull, all lying conditions pooled). We report means, Cohen's $d$, and Bonferroni-corrected $p$-values. Features with $|d| > 0.5$ are highlighted.}
+\label{tab:stats}
+\small
+\begin{tabular}{@{}lcccl@{}}
+\toprule
+\textbf{Feature} & \textbf{Truthful} & \textbf{Lying} & \textbf{Cohen's} $d$ & \textbf{$p$-value} \\
+\midrule
+\texttt{negation\_ratio} & 0.003 & 0.023 & $-${\bf 1.23} & $4.5 \times 10^{-54}$ \\
+\texttt{word\_count} & 36.8 & 46.9 & $-${\bf 1.08} & $1.1 \times 10^{-48}$ \\
+\texttt{avg\_sent\_length} & 11.8 & 15.0 & $-${\bf 1.04} & $5.6 \times 10^{-46}$ \\
+\texttt{upper\_ratio} & 0.032 & 0.022 & {\bf 0.73} & $6.3 \times 10^{-19}$ \\
+\texttt{exclamation\_count} & 0.00 & 0.16 & $-${\bf 0.54} & $2.0 \times 10^{-11}$ \\
+\texttt{hedge\_ratio} & 0.005 & 0.014 & $-${\bf 0.50} & $8.6 \times 10^{-22}$ \\
+\texttt{type\_token\_ratio} & 0.806 & 0.826 & $-$0.29 & $1.8 \times 10^{-4}$ \\
+\texttt{hapax\_ratio} & 0.669 & 0.695 & $-$0.25 & $9.1 \times 10^{-4}$ \\
+\texttt{punctuation\_ratio} & 0.036 & 0.032 & 0.23 & $2.9 \times 10^{-10}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The three strongest signals are negation ratio ($d = -1.23$), word count ($d = -1.08$), and average sentence length ($d = -1.04$). Deceptive responses use 7$\times$ more negation words (0.023 vs.\ 0.003), are 27\% longer (46.9 vs.\ 36.8 words), and contain longer sentences (15.0 vs.\ 11.8 words per sentence). Hedging language increases 2.8$\times$ under deceptive conditions ($d = -0.50$), while upper-case ratio decreases ($d = 0.73$), reflecting the shift from short, capitalized affirmations (``True.'') to longer explanatory text.
+
+\subsection{Vocabulary Distributions Diverge}
+\label{sec:jsd_results}
+
+\tabref{tab:jsd} shows the Jensen-Shannon divergence between truthful and deceptive vocabulary distributions. All three lying conditions produce substantially higher divergence than the truthful self-divergence baseline.
+
+\begin{table}[t]
+\centering
+\caption{Jensen-Shannon divergence between truthful and deceptive unigram distributions (\gptfull). The baseline is the self-divergence of the truthful condition (random-half split). 95\% CIs from 10,000 bootstrap iterations.}
+\label{tab:jsd}
+\small
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Comparison} & \textbf{\jsd} & \textbf{95\% CI} \\
+\midrule
+Truthful vs.\ \directlie & 0.207 & [0.198, 0.215] \\
+Truthful vs.\ \roleplaylie & 0.236 & [0.230, 0.244] \\
+Truthful vs.\ \sycophantlie & {\bf 0.244} & [0.237, 0.253] \\
+\midrule
+Baseline (self-divergence) & 0.056 & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The lying conditions show 3.7--4.4$\times$ higher vocabulary divergence than baseline, with non-overlapping confidence intervals. The \sycophantlie condition produces the largest divergence (0.244), likely because agreeing with an incorrect belief requires the most elaborate justification.
+
+\subsection{Classifiers Detect Deception with High Accuracy}
+\label{sec:class_results}
+
+\tabref{tab:classification} reports 5-fold cross-validation results for binary classification (truthful vs.\ deceptive) on \gptfull. All classifiers substantially exceed the 50\% chance baseline.
+
+\begin{table}[t]
+\centering
+\caption{Binary classification of truthful vs.\ deceptive responses (\gptfull, 5-fold stratified CV). Values are mean $\pm$ standard deviation.}
+\label{tab:classification}
+\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Classifier} & \textbf{Accuracy} & \textbf{F1} & \textbf{AUC-ROC} \\
+\midrule
+Logistic Regression & $0.905 \pm 0.018$ & --- & $0.938 \pm 0.022$ \\
+Random Forest & ${\bf 0.928} \pm 0.016$ & --- & ${\bf 0.971} \pm 0.011$ \\
+Gradient Boosting & $0.922 \pm 0.014$ & --- & $0.971 \pm 0.008$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The Random Forest achieves the highest accuracy (92.8\%) and AUC-ROC (0.971). Logistic Regression's competitive performance (90.5\%) suggests that the truthful--deceptive boundary is approximately linear in feature space.
+
+\para{Per-condition detection.}
+\tabref{tab:percondition} shows that all three deception strategies are individually detectable at $>$95\% accuracy with Logistic Regression alone.
+
+\begin{table}[t]
+\centering
+\caption{Per-condition detection accuracy (\gptfull, Logistic Regression, 5-fold CV).}
+\label{tab:percondition}
+\small
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Condition} & \textbf{Accuracy} & \textbf{AUC-ROC} \\
+\midrule
+\directlie & $0.970 \pm 0.014$ & $0.989 \pm 0.009$ \\
+\roleplaylie & $0.951 \pm 0.009$ & $0.986 \pm 0.006$ \\
+\sycophantlie & $0.965 \pm 0.009$ & ${\bf 0.996} \pm 0.003$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\para{Feature importance.}
+The Random Forest ranks negation ratio as the most important feature (importance 0.197), followed by word count (0.145), average sentence length (0.117), upper-case ratio (0.107), and punctuation ratio (0.079). These five features account for 64.5\% of total importance.
+
+\subsection{Cross-Model Generalization}
+\label{sec:crossmodel}
+
+We replicate the analysis on \gptmini (48 questions, 192 responses). \tabref{tab:crossmodel} shows that the distributional differences persist, though classification accuracy is lower (83.3\% vs.\ 92.8\%), likely due to the smaller sample size (192 vs.\ 1,152 responses).
+
+\begin{table}[t]
+\centering
+\caption{Cross-model results on \gptmini (5-fold CV). Effect sizes (Cohen's $d$) for top features are shown alongside classification accuracy.}
+\label{tab:crossmodel}
+\small
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Metric} & \textbf{\gptfull} & \textbf{\gptmini} \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{Effect sizes (Cohen's $d$)}} \\
+\quad Word count & $-$1.08 & $-${\bf 1.41} \\
+\quad Hedge ratio & $-$0.50 & $-${\bf 1.08} \\
+\quad Exclamation count & $-$0.54 & $-${\bf 1.20} \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{Classification (Random Forest)}} \\
+\quad Accuracy & {\bf 0.928} & 0.833 \\
+\quad AUC-ROC & {\bf 0.971} & 0.924 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The effect sizes on \gptmini are in several cases \emph{larger} than on \gptfull (word count: $d = -1.41$, hedge ratio: $d = -1.08$), suggesting that the smaller model may produce even more exaggerated distributional shifts when lying, despite lower overall classification performance due to the reduced sample.

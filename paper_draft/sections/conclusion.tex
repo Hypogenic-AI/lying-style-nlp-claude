@@ -1,0 +1,8 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We show that LLMs produce measurably different text when instructed to lie. Across 1,344 paired responses from two models and three deception strategies, we find large distributional shifts: deceptive responses are longer ($d = -1.08$), use 7$\times$ more negation ($d = -1.23$), and contain 2.8$\times$ more hedging language ($d = -0.50$). A Random Forest classifier achieves 92.8\% accuracy at distinguishing truthful from deceptive text using only 15 surface-level features, with no access to model internals.
+
+These findings have two implications. First, current LLMs do not convincingly imitate their own truthful style when lying---at least for factual true/false tasks. The ``lying distribution'' is a distinct mode with consistent, detectable signatures. Second, practical black-box deception detection is feasible: simple text classifiers can serve as a first-pass filter for monitoring deployed LLM systems.
+
+Important caveats remain. The strong negation signal is partly a mechanical artifact of contradicting true statements, and may not generalize to open-ended deception. Our results cover two models from one provider; broader model coverage is needed. Future work should test whether these signatures persist for subtler forms of deception (\eg fabricating plausible narratives), whether models can be prompted to lie while mimicking their truthful style, and whether fine-tuning can eliminate distributional signatures entirely. If LLMs can learn to lie without stylistic traces, the arms race between deception and detection will require deeper methods. For now, their lies leave fingerprints.

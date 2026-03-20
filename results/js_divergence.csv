@@ -1,0 +1,9 @@
+comparison,ngram,js_divergence
+truthful_vs_direct_lie,1,0.1800196736768948
+truthful_vs_direct_lie,2,0.4689710882613824
+truthful_vs_roleplay_lie,1,0.2111847835171182
+truthful_vs_roleplay_lie,2,0.5119331840716059
+truthful_vs_sycophantic_lie,1,0.21907296281235242
+truthful_vs_sycophantic_lie,2,0.5115881976025258
+truthful_run0_vs_runs12 (baseline),1,0.05602003053087099
+truthful_run0_vs_runs12 (baseline),2,0.21303046374171627

@@ -1,0 +1,9 @@
+PDF: papers/2501.14786_When_Truthful_Representations_Flip.pdf
+Total pages: 11
+Pages per chunk: 3
+
+Chunks:
+  2501.14786_When_Truthful_Representations_Flip_chunk_001.pdf: pages 1-3
+  2501.14786_When_Truthful_Representations_Flip_chunk_002.pdf: pages 4-6
+  2501.14786_When_Truthful_Representations_Flip_chunk_003.pdf: pages 7-9
+  2501.14786_When_Truthful_Representations_Flip_chunk_004.pdf: pages 10-11

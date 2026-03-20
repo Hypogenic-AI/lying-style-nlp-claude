@@ -1,0 +1,17 @@
+PDF: papers/2407.00831_Truth_is_Universal_Robust_Detection_Lies_LLMs.pdf
+Total pages: 58
+Pages per chunk: 5
+
+Chunks:
+  2407.00831_Truth_is_Universal_Robust_Detection_Lies_LLMs_chunk_001.pdf: pages 1-5
+  2407.00831_Truth_is_Universal_Robust_Detection_Lies_LLMs_chunk_002.pdf: pages 6-10
+  2407.00831_Truth_is_Universal_Robust_Detection_Lies_LLMs_chunk_003.pdf: pages 11-15
+  2407.00831_Truth_is_Universal_Robust_Detection_Lies_LLMs_chunk_004.pdf: pages 16-20
+  2407.00831_Truth_is_Universal_Robust_Detection_Lies_LLMs_chunk_005.pdf: pages 21-25
+  2407.00831_Truth_is_Universal_Robust_Detection_Lies_LLMs_chunk_006.pdf: pages 26-30
+  2407.00831_Truth_is_Universal_Robust_Detection_Lies_LLMs_chunk_007.pdf: pages 31-35
+  2407.00831_Truth_is_Universal_Robust_Detection_Lies_LLMs_chunk_008.pdf: pages 36-40
+  2407.00831_Truth_is_Universal_Robust_Detection_Lies_LLMs_chunk_009.pdf: pages 41-45
+  2407.00831_Truth_is_Universal_Robust_Detection_Lies_LLMs_chunk_010.pdf: pages 46-50
+  2407.00831_Truth_is_Universal_Robust_Detection_Lies_LLMs_chunk_011.pdf: pages 51-55
+  2407.00831_Truth_is_Universal_Robust_Detection_Lies_LLMs_chunk_012.pdf: pages 56-58

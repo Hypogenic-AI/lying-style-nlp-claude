@@ -1,0 +1,32 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\para{Why does lying text look different?}
+The strongest signal---negation ratio---has a straightforward mechanical explanation: contradicting a true statement requires negation words (\eg ``not,'' ``false,'' ``never''). This is a direct consequence of the task structure rather than a stylistic shift. However, other signals are less trivially explained. The increase in word count and sentence length suggests that the model produces more elaborate justifications when fabricating false claims, consistent with the observation from human deception research that liars tend to over-explain \citep{jones2024lies}. The increase in hedging (``perhaps,'' ``possibly'') may reflect residual uncertainty---the model's representations encode that the statement is true \citep{azaria2023internal, long2025truthful}, and this internal tension surfaces as hedging in the output.
+
+\para{Connection to internal-state findings.}
+Our results are consistent with the internal-representation literature. \citet{long2025truthful} show that deceptive instructions induce representational shifts concentrated in early-to-mid layers. \citet{huan2025can} find that lying circuits are sparse and localizable. If truthful and deceptive processing occupy distinct subspaces internally, it is natural that the output distributions would differ as well. Our contribution is showing that this difference is large enough to be practically exploitable from text alone.
+
+\para{Sycophantic lying is most distinct.}
+Among the three deception strategies, sycophantic lying produces the largest vocabulary divergence (JSD 0.244 vs.\ 0.207 for direct lies) and the highest per-condition AUC-ROC (0.996). This condition requires the model not only to contradict the truth but also to validate the user's incorrect belief, producing longer, more elaborate responses with distinctive pragmatic markers. The roleplay condition uniquely introduces exclamation marks (0.39 per response vs.\ 0 for truthful), revealing that character-based lying adds performative elements absent from the model's normal output.
+
+\para{Practical implications.}
+The 92.8\% detection accuracy from 15 simple text features suggests a viable path toward real-time, black-box deception monitoring for deployed LLM systems. Such a system would require no access to model weights, no probe training on internal activations, and minimal computational overhead. This is particularly relevant for API-served models where users cannot inspect internals. Even as a first-pass filter, a surface-level classifier could flag responses for further review, reducing the burden on more expensive verification methods.
+
+\subsection{Limitations}
+\label{sec:limitations}
+
+\para{Task specificity.}
+All questions are factual true/false statements from the \azaria dataset. This controlled setting maximizes internal validity but limits generalizability. In open-ended deception scenarios---\eg fabricating plausible stories or subtly misleading in conversation---the distributional signatures, particularly negation, may be weaker or absent.
+
+\para{Prompt confound.}
+Each condition uses a different system prompt, which introduces stylistic differences beyond the lying itself. The sycophantic condition additionally modifies the user message (``I'm pretty sure...''), changing the conversational frame. While the consistent results across three diverse prompting strategies mitigate this concern, a future study should test whether the same system prompt can produce both truthful and deceptive responses (\eg by varying only the factual content).
+
+\para{Negation as artifact.}
+The dominant feature---negation ratio---is largely a mechanical consequence of contradicting true statements. In deception scenarios that do not require explicit negation (\eg generating plausible but false narratives), this signal would likely disappear. The remaining features (verbosity, hedging) are more genuinely stylistic, but their effect sizes are smaller.
+
+\para{Model coverage.}
+Both \gptfull and \gptmini are OpenAI models, likely sharing architectural and training similarities. Testing on models from different families (Claude, Gemini, Llama, Mistral) is needed to establish whether these signatures are universal properties of instruction-tuned LLMs or specific to one model family.
+
+\para{Temperature and sampling.}
+All experiments use temperature 0.7. Higher temperatures increase output diversity and may dilute distributional signatures; lower temperatures may amplify them. A systematic study across temperature settings would strengthen our conclusions.

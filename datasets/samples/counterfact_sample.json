@@ -1,0 +1,122 @@
+[
+  {
+    "relation": "The mother tongue of {} is",
+    "relation_prefix": "The mother tongue of",
+    "relation_suffix": " is",
+    "prompt": "The mother tongue of Danielle Darrieux is",
+    "relation_id": "P103",
+    "target_false_id": "Q1860",
+    "target_true_id": "Q150",
+    "target_true": " French",
+    "target_false": " English",
+    "subject": " Danielle Darrieux"
+  },
+  {
+    "relation": "The official religion of {} is",
+    "relation_prefix": "The official religion of",
+    "relation_suffix": " is",
+    "prompt": "The official religion of Edwin of Northumbria is",
+    "relation_id": "P140",
+    "target_false_id": "Q432",
+    "target_true_id": "Q5043",
+    "target_true": " Christianity",
+    "target_false": " Islam",
+    "subject": " Edwin of Northumbria"
+  },
+  {
+    "relation": "{}, the",
+    "relation_prefix": "",
+    "relation_suffix": "{}, the",
+    "prompt": "Toko Yasuda, the",
+    "relation_id": "P1303",
+    "target_false_id": "Q5994",
+    "target_true_id": "Q6607",
+    "target_true": " guitar",
+    "target_false": " piano",
+    "subject": "Toko Yasuda"
+  },
+  {
+    "relation": "{}, which is located in",
+    "relation_prefix": "",
+    "relation_suffix": "{}, which is located in",
+    "prompt": "Autonomous University of Madrid, which is located in",
+    "relation_id": "P17",
+    "target_false_id": "Q34",
+    "target_true_id": "Q29",
+    "target_true": " Spain",
+    "target_false": " Sweden",
+    "subject": "Autonomous University of Madrid"
+  },
+  {
+    "relation": "What is the twin city of {}? It is",
+    "relation_prefix": "What is the twin city of",
+    "relation_suffix": "? It is",
+    "prompt": "What is the twin city of Lyon? It is",
+    "relation_id": "P190",
+    "target_false_id": "Q1461",
+    "target_true_id": "Q3820",
+    "target_true": " Beirut",
+    "target_false": " Manila",
+    "subject": " Lyon"
+  },
+  {
+    "relation": "The mother tongue of {} is",
+    "relation_prefix": "The mother tongue of",
+    "relation_suffix": " is",
+    "prompt": "The mother tongue of Thomas Joannes Stieltjes is",
+    "relation_id": "P103",
+    "target_false_id": "Q1860",
+    "target_true_id": "Q7411",
+    "target_true": " Dutch",
+    "target_false": " English",
+    "subject": " Thomas Joannes Stieltjes"
+  },
+  {
+    "relation": "{}, that was created in",
+    "relation_prefix": "",
+    "relation_suffix": "{}, that was created in",
+    "prompt": "Anaal Nathrakh, that was created in",
+    "relation_id": "P740",
+    "target_false_id": "Q1345",
+    "target_true_id": "Q2256",
+    "target_true": " Birmingham",
+    "target_false": " Philadelphia",
+    "subject": "Anaal Nathrakh"
+  },
+  {
+    "relation": "{} was created by",
+    "relation_prefix": "",
+    "relation_suffix": "{} was created by",
+    "prompt": "Apple A5 was created by",
+    "relation_id": "P178",
+    "target_false_id": "Q95",
+    "target_true_id": "Q312",
+    "target_true": " Apple",
+    "target_false": " Google",
+    "subject": "Apple A5"
+  },
+  {
+    "relation": "What is the twin city of {}? It is",
+    "relation_prefix": "What is the twin city of",
+    "relation_suffix": "? It is",
+    "prompt": "What is the twin city of Wellington? It is",
+    "relation_id": "P190",
+    "target_false_id": "Q42448",
+    "target_true_id": "Q3130",
+    "target_true": " Sydney",
+    "target_false": " Sheffield",
+    "subject": " Wellington"
+  },
+  {
+    "relation": "{}, created in",
+    "relation_prefix": "",
+    "relation_suffix": "{}, created in",
+    "prompt": "Shree Pundalik, created in",
+    "relation_id": "P495",
+    "target_false_id": "Q34",
+    "target_true_id": "Q668",
+    "target_true": " India",
+    "target_false": " Sweden",
+    "subject": "Shree Pundalik"
+  }
+]

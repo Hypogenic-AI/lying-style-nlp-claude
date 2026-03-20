@@ -1,0 +1,92 @@
+[
+  {
+    "cid": 75397,
+    "fid": "f3680d64-bcdf-426f-a1ad-e8ae25ea9ba0",
+    "premise": "Nikolaj Coster-Waldau worked with the Fox Broadcasting Company.",
+    "hypothesis": "The Fox Broadcasting Company ( often shortened to Fox and stylized as FOX ) is an American English language commercial broadcast television network that is owned by the Fox Entertainment Group subsidiary of 21st Century Fox . Nikolaj Coster-Waldau . He then played Detective John Amsterdam in the short-lived Fox television series New Amsterdam ( 2008 ) , as well as appearing as Frank Pike in the 2009 Fox television film Virtuality , originally intended as a pilot . He became widely known to a broad audience for his current role as Ser Jaime Lannister , in the HBO series Game of Thrones .",
+    "verifiable": 1,
+    "fever_gold_label": "SUPPORTS",
+    "label": 0
+  },
+  {
+    "cid": 150448,
+    "fid": "fef1e0e5-4961-4cb1-a2df-72cf857c072d",
+    "premise": "Roman Atwood is a content creator.",
+    "hypothesis": "Roman Atwood . He is best known for his vlogs , where he posts updates about his life on a daily basis . His vlogging channel , `` RomanAtwoodVlogs '' , has a total of 3.3 billion views and 11.9 million subscribers . He also has another YouTube channel called `` RomanAtwood '' , where he posts pranks .",
+    "verifiable": 1,
+    "fever_gold_label": "SUPPORTS",
+    "label": 0
+  },
+  {
+    "cid": 150448,
+    "fid": "74e0bfe1-5e7e-4b6f-9d6c-a55e2e72567e",
+    "premise": "Roman Atwood is a content creator.",
+    "hypothesis": "Roman Atwood . His vlogging channel , `` RomanAtwoodVlogs '' , has a total of 3.3 billion views and 11.9 million subscribers . He also has another YouTube channel called `` RomanAtwood '' , where he posts pranks . Both of these channels are in the top 100 most subscribed on YouTube , and he became the second YouTuber after Germa\u0301n Garmendia to receive two Diamond Play Buttons for his two channels .",
+    "verifiable": 1,
+    "fever_gold_label": "SUPPORTS",
+    "label": 0
+  },
+  {
+    "cid": 214861,
+    "fid": "12af19b6-a930-4de8-8453-a02a7566f950",
+    "premise": "History of art includes architecture, dance, sculpture, music, painting, poetry literature, theatre, narrative, film, photography and graphic arts.",
+    "hypothesis": "History of art . The subsequent expansion of the list of principal arts in the 20th century reached to nine : architecture , dance , sculpture , music , painting , poetry ( described broadly as a form of literature with aesthetic purpose or function , which also includes the distinct genres of theatre and narrative ) , film , photography and graphic arts .",
+    "verifiable": 1,
+    "fever_gold_label": "SUPPORTS",
+    "label": 0
+  },
+  {
+    "cid": 156709,
+    "fid": "9e514c12-f223-41d1-8820-7403def61479",
+    "premise": "Adrienne Bailon is an accountant.",
+    "hypothesis": "Adrienne Eliza Houghton ( ne\u0301e Bailon ; born October 24 , 1983 ) is an American singer-songwriter , recording artist , actress , dancer and television personality .",
+    "verifiable": 1,
+    "fever_gold_label": "REFUTES",
+    "label": 2
+  },
+  {
+    "cid": 83235,
+    "fid": "c1612fdb-e972-493a-913f-76b303df50c3",
+    "premise": "System of a Down briefly disbanded in limbo.",
+    "hypothesis": "System of a Down . The group briefly disbanded in August 2006 and reunited in November 2010 , embarking on a tour for the following three years .",
+    "verifiable": 0,
+    "fever_gold_label": "NOT ENOUGH INFO",
+    "label": 1
+  },
+  {
+    "cid": 129629,
+    "fid": "40b69df4-6128-4941-8aa0-6530a8bd0c91",
+    "premise": "Homeland is an American television spy thriller based on the Israeli television series Prisoners of War.",
+    "hypothesis": "Homeland is an American spy thriller television series developed by Howard Gordon and Alex Gansa based on the Israeli series Prisoners of War ( Original title \u05d7\u05d8\u05d5\u05e4\u05d9\u05dd Hatufim , literally `` Abductees '' ) , which was created by Gideon Raff . Prisoners of War ( original title in ) is an Israeli television drama series made by Keshet and originally aired on Israel 's Channel 2 from March to May 2010 .",
+    "verifiable": 1,
+    "fever_gold_label": "SUPPORTS",
+    "label": 0
+  },
+  {
+    "cid": 149579,
+    "fid": "968e0151-a0ea-49fd-a473-da5321209ec6",
+    "premise": "Beautiful reached number two on the Billboard Hot 100 in 2003.",
+    "hypothesis": "Beautiful (Christina Aguilera song) . The song peaked at number two on the Billboard Hot 100 in the United States , where it was certified Gold for 500,000 units shipped .",
+    "verifiable": 0,
+    "fever_gold_label": "NOT ENOUGH INFO",
+    "label": 1
+  },
+  {
+    "cid": 229289,
+    "fid": "da27eb34-34cc-42c9-a2e3-468a03f2589f",
+    "premise": "Neal Schon was named in 1954.",
+    "hypothesis": "Neal Joseph Schon ( born February 27 , 1954 ) is an American rock guitarist , songwriter , and vocalist , best known for his work with the bands Journey and Bad English .",
+    "verifiable": 0,
+    "fever_gold_label": "NOT ENOUGH INFO",
+    "label": 1
+  },
+  {
+    "cid": 33078,
+    "fid": "d3df9d1b-c180-4eed-ba71-77e5923698e9",
+    "premise": "The Boston Celtics play their home games at TD Garden.",
+    "hypothesis": "Boston Celtics . The Celtics play their home games at the TD Garden , which they share with the National Hockey League ( NHL ) 's Boston Bruins .",
+    "verifiable": 1,
+    "fever_gold_label": "SUPPORTS",
+    "label": 0
+  }
+]

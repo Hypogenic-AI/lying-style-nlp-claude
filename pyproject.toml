@@ -1,0 +1,26 @@
+[project]
+name = "research-workspace"
+version = "0.1.0"
+description = "Research workspace for Lying Style NLP experiments"
+requires-python = ">=3.10"
+dependencies = [
+    "datasets>=4.8.3",
+    "matplotlib>=3.10.8",
+    "nltk>=3.9.3",
+    "numpy>=2.2.6",
+    "openai>=2.29.0",
+    "pandas>=2.3.3",
+    "pyarrow>=23.0.1",
+    "scikit-learn>=1.7.2",
+    "scipy>=1.15.3",
+    "seaborn>=0.13.2",
+    "textstat>=0.7.13",
+    "tqdm>=4.67.3",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]

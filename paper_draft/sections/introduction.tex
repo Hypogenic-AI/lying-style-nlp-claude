@@ -1,0 +1,20 @@
+\section{Introduction}
+\label{sec:intro}
+
+Can you tell when a language model is lying just by reading its output?
+
+Large language models follow instructions with remarkable fidelity---including instructions to deceive. When prompted to deny well-established facts, models produce fluent, confident responses that contradict reality \citep{huan2025can, hubinger2024sleeper}. This raises a pressing question for AI safety: if an LLM can be instructed to lie, can we detect when it does so?
+
+\para{The detection gap.} Most successful approaches to LLM deception detection operate on \emph{model internals}. Probing classifiers trained on hidden-state activations can distinguish truthful from deceptive processing with high accuracy \citep{azaria2023internal, burns2023discovering, marks2025probing}. Sparse autoencoders reveal that truthful and deceptive representations occupy distinct subspaces \citep{long2025truthful}. Steering vectors extracted from contrastive activations can even control lying behavior \citep{huan2025can}. However, these white-box methods require access to model weights and activations---a luxury unavailable for most deployed systems accessed only through APIs.
+
+\para{Our question.} We ask whether deception is detectable from the \emph{output text alone}, without any access to model internals. Specifically, we test whether the distribution of text produced by an LLM under deceptive instructions differs measurably from its truthful output distribution. If such differences exist, they would enable practical black-box deception detection for deployed systems.
+
+\para{Approach and findings.} We generate 1,344 paired responses from \gptfull and \gptmini to 96 factual statements under four conditions: truthful, direct lie, roleplay lie, and sycophantic lie. We extract 15 surface-level linguistic features and compare distributions using effect sizes, divergence measures, and classifiers. The answer is strongly affirmative: 9 of 15 features differ significantly after Bonferroni correction, with large effect sizes ($|d| > 1$ for word count, negation, and sentence length). A Random Forest classifier achieves 92.8\% accuracy (AUC 0.971) using only surface features. These signatures hold across all three deception strategies and across both models.
+
+\para{Contributions.} We make the following contributions:
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+    \item We demonstrate that LLM deceptive text exhibits large, measurable distributional differences from truthful text across multiple linguistic dimensions, with Cohen's $d > 1$ for key features.
+    \item We show that a simple classifier using only 15 surface-level text features achieves 92.8\% accuracy at black-box deception detection, establishing a strong baseline for output-only approaches.
+    \item We test three distinct deception elicitation strategies (direct instruction, roleplay, sycophantic agreement) and find that all produce detectable signatures, with per-condition accuracy exceeding 95\%.
+    \item We validate cross-model generalization by replicating findings on \gptmini, observing similar distributional patterns despite the smaller model.
+\end{itemize}

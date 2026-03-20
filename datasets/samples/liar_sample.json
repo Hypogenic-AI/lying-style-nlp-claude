@@ -1,0 +1,62 @@
+[
+  {
+    "text": "Dwayne Bohac says the Annies List political group supports third-trimester abortions on demand.",
+    "label_text": "false statement",
+    "labels": 1,
+    "context": "a mailer"
+  },
+  {
+    "text": "Scott Surovell says When did the decline of coal start? It started when natural gas took off that started to begin in (President George W.) Bushs administration.",
+    "label_text": "true statement",
+    "labels": 0,
+    "context": "a floor speech."
+  },
+  {
+    "text": "Barack Obama says Hillary Clinton agrees with John McCain \"by voting to give George Bush the benefit of the doubt on Iran.\"",
+    "label_text": "true statement",
+    "labels": 0,
+    "context": "Denver"
+  },
+  {
+    "text": "Blog Posting says Health care reform legislation is likely to mandate free sex change surgeries.",
+    "label_text": "false statement",
+    "labels": 1,
+    "context": "a news release"
+  },
+  {
+    "text": "Charlie Crist says The economic turnaround started at the end of my term.",
+    "label_text": "true statement",
+    "labels": 0,
+    "context": "an interview on CNN"
+  },
+  {
+    "text": "Robin Vos says The Chicago Bears have had more starting quarterbacks in the last 10 years than the total number of tenured (UW) faculty fired during the last two decades.",
+    "label_text": "true statement",
+    "labels": 0,
+    "context": "a an online opinion-piece"
+  },
+  {
+    "text": "Republican Party Texas says Jim Dunnam has not lived in the district he represents for years now.",
+    "label_text": "true statement",
+    "labels": 0,
+    "context": "a press release."
+  },
+  {
+    "text": "Barack Obama says \"I'm the only person on this stage who has worked actively just last year passing, along with Russ Feingold, some of the toughest ethics reform since Watergate.\"",
+    "label_text": "true statement",
+    "labels": 0,
+    "context": "a Democratic debate in Philadelphia, Pa."
+  },
+  {
+    "text": "Oregon Lottery says However, it took $19.5 million in Oregon Lottery funds for the Port of Newport to eventually land the new NOAA Marine Operations Center-Pacific.",
+    "label_text": "true statement",
+    "labels": 0,
+    "context": "a website "
+  },
+  {
+    "text": "Duey Stroebel says GOP primary opponents Glenn Grothman and Joe Leibham cast a compromise vote that cost $788 million in higher electricity costs.",
+    "label_text": "true statement",
+    "labels": 0,
+    "context": "an online video"
+  }
+]

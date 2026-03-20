@@ -1,0 +1,40 @@
+{
+  "total_responses": 1152,
+  "conditions": {
+    "truthful": 288,
+    "direct_lie": 288,
+    "roleplay_lie": 288,
+    "sycophantic_lie": 288
+  },
+  "significant_features_bonferroni": 31,
+  "significant_features_uncorrected": 36,
+  "total_tests": 51,
+  "best_classifier": "Gradient Boosting",
+  "best_accuracy": "0.979\u00b10.008",
+  "best_auc": "0.993\u00b10.003",
+  "js_divergences": {
+    "truthful_vs_direct_lie": 0.4689710882613824,
+    "truthful_vs_roleplay_lie": 0.5119331840716059,
+    "truthful_vs_sycophantic_lie": 0.5115881976025258,
+    "truthful_run0_vs_runs12 (baseline)": 0.21303046374171627
+  },
+  "top_discriminative_features": [
+    "starts_true",
+    "negation_ratio",
+    "word_count",
+    "avg_sentence_length",
+    "upper_ratio"
+  ],
+  "overall_significant_features": [
+    "word_count",
+    "avg_sentence_length",
+    "type_token_ratio",
+    "hapax_ratio",
+    "hedge_ratio",
+    "negation_ratio",
+    "exclamation_count",
+    "punctuation_ratio",
+    "upper_ratio",
+    "starts_true"
+  ]
+}

@@ -1,0 +1,72 @@
+\section{Methodology}
+\label{sec:method}
+
+We design a controlled experiment to compare the distributional properties of LLM-generated text under truthful and deceptive conditions. Our approach has three stages: paired corpus generation (\secref{sec:corpus}), linguistic feature extraction (\secref{sec:features}), and statistical analysis with classification (\secref{sec:analysis}).
+
+\subsection{Paired Corpus Generation}
+\label{sec:corpus}
+
+\para{Source data.}
+We sample 96 true factual statements from the \azaria dataset \citep{azaria2023internal}, which contains 6,084 statements across six topic categories: cities, companies, scientific facts, common claims, Spanish translations, and counterfactuals. We use balanced sampling across categories to ensure topic diversity.
+
+\para{Experimental conditions.}
+Each statement is presented to the model under four conditions, each specified by a different system prompt:
+\begin{enumerate}[leftmargin=*,itemsep=1pt,topsep=2pt]
+    \item \textbf{Truthful}: A standard honest-assistant system prompt instructing the model to answer accurately.
+    \item \textbf{\directlie}: A system prompt instructing the model to give the opposite of the correct answer.
+    \item \textbf{\roleplaylie}: A system prompt casting the model as a ``mischievous trickster'' character who enjoys misleading people.
+    \item \textbf{\sycophantlie}: A system prompt instructing the model to agree with the user's incorrect belief, framed as ``I'm pretty sure [false claim]...''
+\end{enumerate}
+
+The three deceptive conditions test distinct elicitation mechanisms: explicit instruction (\directlie), persona adoption (\roleplaylie), and social pressure (\sycophantlie). This design lets us assess whether distributional signatures are robust across deception strategies or specific to a particular prompting style.
+
+\para{Models and generation.}
+We use \gptfull as the primary model, generating 3 independent runs per condition (temperature 0.7, max 300 tokens) for a total of $96 \times 4 \times 3 = 1{,}152$ responses. For cross-model validation, we generate 1 run per condition on \gptmini ($96/2 \times 4 = 192$ responses on 48 statements). All responses were generated successfully with zero API errors.
+
+\subsection{Linguistic Feature Extraction}
+\label{sec:features}
+
+We extract 15 surface-level features from each response, designed to capture differences in verbosity, vocabulary, hedging, and punctuation. \tabref{tab:features} lists all features. Tokenization uses word-level regex matching (\texttt{\textbackslash b\textbackslash w+\textbackslash b}); sentence splitting uses terminal punctuation (\texttt{.!?}). No additional text normalization is applied beyond lowercasing for feature computation.
+
+\begin{table}[t]
+\centering
+\caption{Linguistic features extracted from each response. Features span four categories: surface statistics, vocabulary diversity, pragmatic markers, and punctuation patterns.}
+\label{tab:features}
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Category} & \textbf{Feature} & \textbf{Description} \\
+\midrule
+\multirow{4}{*}{Surface} & \texttt{word\_count} & Total words \\
+& \texttt{sentence\_count} & Number of sentences \\
+& \texttt{avg\_word\_length} & Mean word length (characters) \\
+& \texttt{avg\_sentence\_length} & Mean sentence length (words) \\
+\midrule
+\multirow{3}{*}{Vocabulary} & \texttt{type\_token\_ratio} & Unique words / total words \\
+& \texttt{hapax\_ratio} & Words appearing once / total \\
+& \texttt{bigram\_diversity} & Unique bigrams / total bigrams \\
+\midrule
+\multirow{3}{*}{Pragmatic} & \texttt{hedge\_ratio} & Hedging words (maybe, perhaps, \ldots) / total \\
+& \texttt{certainty\_ratio} & Certainty words (definitely, clearly, \ldots) / total \\
+& \texttt{negation\_ratio} & Negation words (not, no, never, \ldots) / total \\
+\midrule
+\multirow{5}{*}{Punctuation} & \texttt{exclamation\_count} & Number of \texttt{!} \\
+& \texttt{question\_count} & Number of \texttt{?} \\
+& \texttt{comma\_count} & Number of \texttt{,} \\
+& \texttt{punctuation\_ratio} & Punctuation chars / total chars \\
+& \texttt{upper\_ratio} & Uppercase chars / total chars \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Analysis Pipeline}
+\label{sec:analysis}
+
+\para{Statistical tests.}
+We compare feature distributions between truthful and deceptive conditions using independent-samples $t$-tests. We report Cohen's $d$ as the effect size measure. To control for multiple comparisons across 15 features, we apply Bonferroni correction ($\alpha = 0.05 / 15 = 0.0033$).
+
+\para{Vocabulary divergence.}
+We compute Jensen-Shannon divergence (\jsd) between the unigram distributions of truthful and deceptive text. We pool all responses within each condition to estimate unigram probabilities, then compute \jsd for each truthful--deceptive pair. As a calibration baseline, we compute the self-divergence of the truthful condition by splitting it into random halves and measuring their \jsd. We estimate 95\% confidence intervals via bootstrap resampling (10,000 iterations).
+
+\para{Classification.}
+We train three classifiers---Logistic Regression, Random Forest (100 trees), and Gradient Boosting---on the 15-feature vectors to distinguish truthful from deceptive responses. We evaluate using stratified 5-fold cross-validation and report accuracy, F1, and AUC-ROC. We also train per-condition classifiers to assess detection difficulty for each deception strategy. Feature importances are extracted from the Random Forest model. All classifiers use default hyperparameters from scikit-learn 1.6.1 with random seed 42.
